@@ -100,25 +100,25 @@
         </div>
 
         <div class="glass p-8 rounded-3xl flex flex-col">
-            <h3 class="text-gray-400 font-bold text-sm">ELITE</h3>
+            <h3 class="text-gray-400 font-bold text-sm">ELITE ACCESS</h3>
             <div class="my-6 text-4xl font-extrabold">$<span class="price" data-monthly="99" data-lifetime="999">99</span><span class="duration text-xs text-gray-500">/mo</span></div>
             <ul class="text-xs space-y-3 mb-8 flex-grow text-gray-400">
                 <li>✅ Everything in PRO</li>
                 <li>✅ Crypto Quant</li>
-                <li>✅ VIP Database</li>
+                <li>✅ Neural Prediction</li>
                 <li>✅ Macro Calendar</li>
             </ul>
             <button onclick="openPayment('ELITE')" class="w-full bg-gray-800 py-3 rounded-xl font-bold hover:bg-gray-700">Pay with Crypto</button>
         </div>
 
         <div class="glass p-8 rounded-3xl flex flex-col">
-            <h3 class="text-gray-400 font-bold text-sm">PREMIUM</h3>
+            <h3 class="text-gray-400 font-bold text-sm">PREMIUM ELITE</h3>
             <div class="my-6 text-4xl font-extrabold">$<span class="price" data-monthly="149" data-lifetime="1499">149</span><span class="duration text-xs text-gray-500">/mo</span></div>
             <ul class="text-xs space-y-3 mb-8 flex-grow text-gray-400">
-                <li>✅ Everything in ELITE</li>
+                <li>✅ Everything in ELITE ACCESS</li>
                 <li>✅ Full Access</li>
                 <li>✅ Priority 24/7</li>
-                <li>✅ Neural Predictions</li>
+                <li>✅ VIP Databases</li>
             </ul>
             <button onclick="openPayment('PREMIUM')" class="w-full bg-gray-800 py-3 rounded-xl font-bold hover:bg-gray-700">Pay with Crypto</button>
         </div>
@@ -253,8 +253,15 @@
 
 		function copyAddr() {
 			navigator.clipboard.writeText(wallets[currentNetwork]);
-			alert("Address copied!");
+
+			const toast = document.getElementById("copyToast");
+			toast.classList.remove("hidden");
+
+			setTimeout(() => {
+				toast.classList.add("hidden");
+			}, 2000);
 		}
+
 
 		// 5. Submit Function
 		async function submit() {
@@ -303,7 +310,16 @@
 				btn.innerText = "Submit Payment";
 			}
 		}
+		
 </script>
+
+<!-- Toast Notification -->
+<div id="copyToast"
+class="hidden fixed top-6 left-1/2 -translate-x-1/2 
+bg-green-500 text-white px-6 py-3 rounded-lg 
+shadow-lg text-sm z-50">
+Address copied!
+</div>
 
 </body>
 </html>
